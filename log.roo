@@ -1,0 +1,51 @@
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-23 11:15:20
+project --topLevelPackage com.foamtec.fa --projectName FA --java 7
+persistence setup --provider HIBERNATE --database DERBY_EMBEDDED 
+entity jpa --class ~.base.BaseEntity --abstract --mappedSuperclass --activeRecord 
+field date --fieldName createDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+field date --fieldName engineerUpdateDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+field date --fieldName qcUpdateDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+entity jpa --class ~.domain.FirstArticle --extends ~.base.BaseEntity --inheritanceType TABLE_PER_CLASS --testAutomatically 
+field string --fieldName createBy
+field string --fieldName customer
+field date --fieldName needDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+field string --fieldName partNumber
+field number --fieldName amount --type java.lang.Integer
+field string --fieldName material1
+field string --fieldName material2
+field string --fieldName material3
+field string --fieldName reportType
+field string --fieldName engineerReviewBy
+field string --fieldName drawingReview
+field string --fieldName mouldRequest
+field date --fieldName mouldDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+field string --fieldName engineerStatus
+field string --fieldName qcReviewBy
+field string --fieldName dimensionReview
+field string --fieldName document
+field string --fieldName specDoc
+field string --fieldName rohsDoc
+field string --fieldName msdsDoc
+field string --fieldName hfDoc
+field string --fieldName qcStatus
+field string --fieldName workFlow
+entity jpa --class ~.domain.AppUser --extends ~.base.BaseEntity --inheritanceType TABLE_PER_CLASS --testAutomatically
+field string --fieldName username
+field string --fieldName password
+field string --fieldName name
+field string --fieldName department
+field string --fieldName appRole
+quit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-23 11:39:11
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-23 11:40:08
+json all --deepSerialize 
+web mvc json setup
+web mvc json all --package ~.web
+web mvc setup
+web mvc all --package ~.web
+quit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-23 11:41:39
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-23 12:23:17
+security setup
+quit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-23 12:23:34

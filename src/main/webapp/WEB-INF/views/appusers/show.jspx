@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_foamtec_fa_domain_AppUser" object="${appuser}" path="/appusers" z="1GyJgCvgBIeq1YyThwDzWg4eZ84=">
+        <field:display date="true" dateTimePattern="${appUser_createdate_date_format}" field="createDate" id="s_com_foamtec_fa_domain_AppUser_createDate" object="${appuser}" z="DR4jVt/eqwfAdXbjSeSDMqmEya8="/>
+        <field:display date="true" dateTimePattern="${appUser_engineerupdatedate_date_format}" field="engineerUpdateDate" id="s_com_foamtec_fa_domain_AppUser_engineerUpdateDate" object="${appuser}" z="l9zSPcyrTgzPZvGyx4mB6hZ9qzY="/>
+        <field:display date="true" dateTimePattern="${appUser_qcupdatedate_date_format}" field="qcUpdateDate" id="s_com_foamtec_fa_domain_AppUser_qcUpdateDate" object="${appuser}" z="Pl2cUiN+wGVY6Y+1MkYZzch+XpY="/>
+        <field:display field="username" id="s_com_foamtec_fa_domain_AppUser_username" object="${appuser}" z="Hzqn5tNQF2nIv2FYI7jCTSpAyhk="/>
+        <field:display field="password" id="s_com_foamtec_fa_domain_AppUser_password" object="${appuser}" z="lidLb2erGLBF0iaHNZvORgTjUUs="/>
+        <field:display field="name" id="s_com_foamtec_fa_domain_AppUser_name" object="${appuser}" z="GiwGmO8fSPKXPIyo2H4rL6PsxqI="/>
+        <field:display field="department" id="s_com_foamtec_fa_domain_AppUser_department" object="${appuser}" z="VKt/SN8I0/5102aD/pd5XSu1a8c="/>
+        <field:display field="appRole" id="s_com_foamtec_fa_domain_AppUser_appRole" object="${appuser}" z="kv9haUsDCAJQt4NReu/xMcZl0TY="/>
+    </page:show>
+</div>

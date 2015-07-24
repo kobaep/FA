@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_foamtec_fa_domain_FirstArticle" object="${firstarticle}" path="/firstarticles" z="dR9gCwmuG+NoXgdlOngNfAW9+6c=">
+        <field:display date="true" dateTimePattern="${firstArticle_createdate_date_format}" field="createDate" id="s_com_foamtec_fa_domain_FirstArticle_createDate" object="${firstarticle}" z="UlfvogI1ahRq/BwbxEEvi9n2Su0="/>
+        <field:display date="true" dateTimePattern="${firstArticle_engineerupdatedate_date_format}" field="engineerUpdateDate" id="s_com_foamtec_fa_domain_FirstArticle_engineerUpdateDate" object="${firstarticle}" z="vBtvL9MKXJos7Qj2pRou6FBq+gw="/>
+        <field:display date="true" dateTimePattern="${firstArticle_qcupdatedate_date_format}" field="qcUpdateDate" id="s_com_foamtec_fa_domain_FirstArticle_qcUpdateDate" object="${firstarticle}" z="i90CylbyfAA4ZrGnIO8ARnHQeqk="/>
+        <field:display field="createBy" id="s_com_foamtec_fa_domain_FirstArticle_createBy" object="${firstarticle}" z="2/4kSbZgTRNjs40GQinbwqwMX14="/>
+        <field:display field="customer" id="s_com_foamtec_fa_domain_FirstArticle_customer" object="${firstarticle}" z="cx3KrCRZWzEnfaqKfxBZ/E8dpdo="/>
+        <field:display date="true" dateTimePattern="${firstArticle_needdate_date_format}" field="needDate" id="s_com_foamtec_fa_domain_FirstArticle_needDate" object="${firstarticle}" z="j5D6AV892Bp5PFXiAs1RF0CIw/o="/>
+        <field:display field="partNumber" id="s_com_foamtec_fa_domain_FirstArticle_partNumber" object="${firstarticle}" z="LZai2wqq+94vsfvpep2zv4pYjoE="/>
+        <field:display field="amount" id="s_com_foamtec_fa_domain_FirstArticle_amount" object="${firstarticle}" z="5ms26SUMW/X9U2zzLb0fwlH8yJ8="/>
+        <field:display field="material1" id="s_com_foamtec_fa_domain_FirstArticle_material1" object="${firstarticle}" z="mQUI+/FTGaLW/xmy+5AXUl+FP7I="/>
+        <field:display field="material2" id="s_com_foamtec_fa_domain_FirstArticle_material2" object="${firstarticle}" z="tmvjO/7V/cr71jLw304ezjtQnvo="/>
+        <field:display field="material3" id="s_com_foamtec_fa_domain_FirstArticle_material3" object="${firstarticle}" z="7chUWfdqcL7H7kQl//LOLmz9Ox8="/>
+        <field:display field="reportType" id="s_com_foamtec_fa_domain_FirstArticle_reportType" object="${firstarticle}" z="SxDZbJ6P55a7tJ6ROQuZlFyk268="/>
+        <field:display field="engineerReviewBy" id="s_com_foamtec_fa_domain_FirstArticle_engineerReviewBy" object="${firstarticle}" z="BsoS9zNB4DbkAMHM5ZU6TnNdQKE="/>
+        <field:display field="drawingReview" id="s_com_foamtec_fa_domain_FirstArticle_drawingReview" object="${firstarticle}" z="Ux8YznaQo6eWgcFqwJf/B8I+trs="/>
+        <field:display field="mouldRequest" id="s_com_foamtec_fa_domain_FirstArticle_mouldRequest" object="${firstarticle}" z="tA9gBkii/gEXIyTiCcEv4DTsyxI="/>
+        <field:display date="true" dateTimePattern="${firstArticle_moulddate_date_format}" field="mouldDate" id="s_com_foamtec_fa_domain_FirstArticle_mouldDate" object="${firstarticle}" z="l6f2FAvoH8vHWrOSQON7ePEA9bk="/>
+        <field:display field="engineerStatus" id="s_com_foamtec_fa_domain_FirstArticle_engineerStatus" object="${firstarticle}" z="DMLVMWaofNR9UY77TA2KTv6VK2E="/>
+        <field:display field="qcReviewBy" id="s_com_foamtec_fa_domain_FirstArticle_qcReviewBy" object="${firstarticle}" z="aET9pS/KBAOpm4SorF8pLVnZ6xI="/>
+        <field:display field="dimensionReview" id="s_com_foamtec_fa_domain_FirstArticle_dimensionReview" object="${firstarticle}" z="0JQ1MAAHq4IgNp3/52gZCcHAnCw="/>
+        <field:display field="document" id="s_com_foamtec_fa_domain_FirstArticle_document" object="${firstarticle}" z="JGEP6mzyNT80C0YsqVelK2wGpo0="/>
+        <field:display field="specDoc" id="s_com_foamtec_fa_domain_FirstArticle_specDoc" object="${firstarticle}" z="atpxVBynOPuDo0sILRyvwzXmvos="/>
+        <field:display field="rohsDoc" id="s_com_foamtec_fa_domain_FirstArticle_rohsDoc" object="${firstarticle}" z="bLFruS0K9dXsuDGpDmL8GRhBmS8="/>
+        <field:display field="msdsDoc" id="s_com_foamtec_fa_domain_FirstArticle_msdsDoc" object="${firstarticle}" z="HPFfh+IPOCq3+oqCrhcooMVmKXY="/>
+        <field:display field="hfDoc" id="s_com_foamtec_fa_domain_FirstArticle_hfDoc" object="${firstarticle}" z="UVPDyhqogeIFKfRQywMtPTTXwpU="/>
+        <field:display field="qcStatus" id="s_com_foamtec_fa_domain_FirstArticle_qcStatus" object="${firstarticle}" z="2lICTl74xPwAscqtOAl2mGXR18o="/>
+        <field:display field="workFlow" id="s_com_foamtec_fa_domain_FirstArticle_workFlow" object="${firstarticle}" z="n2ryH4HR01Gx7RhTDyGzBfKrIgs="/>
+    </page:show>
+</div>

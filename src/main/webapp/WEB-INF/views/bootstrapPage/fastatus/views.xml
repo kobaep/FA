@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="foamtec" name="fastatus/create">
+        <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/create.jspx"/>
+    </definition>
+    <definition extends="foamtec" name="fastatus/engineer-review">
+        <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/engineer-review.jspx"/>
+    </definition>
+    <definition extends="foamtec" name="fastatus/engineer-approve">
+        <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/engineer-approve.jspx"/>
+    </definition>
+</tiles-definitions>

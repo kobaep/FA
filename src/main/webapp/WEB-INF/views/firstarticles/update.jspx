@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_foamtec_fa_domain_FirstArticle" modelAttribute="firstArticle" path="/firstarticles" versionField="Version" z="zdC3SMcaQ/XLhb/yNDo/XjAFSqY=">
+        <field:datetime dateTimePattern="${firstArticle_createdate_date_format}" field="createDate" id="c_com_foamtec_fa_domain_FirstArticle_createDate" z="Y2EbBecgCGn0PhfWZRLBS9NtToU="/>
+        <field:datetime dateTimePattern="${firstArticle_engineerupdatedate_date_format}" field="engineerUpdateDate" id="c_com_foamtec_fa_domain_FirstArticle_engineerUpdateDate" z="wTDR5CZo10+FPJfyJdaAbAknBAg="/>
+        <field:datetime dateTimePattern="${firstArticle_qcupdatedate_date_format}" field="qcUpdateDate" id="c_com_foamtec_fa_domain_FirstArticle_qcUpdateDate" z="SQcAt3Bn+9AotH30PN4+48mRfts="/>
+        <field:input field="createBy" id="c_com_foamtec_fa_domain_FirstArticle_createBy" z="eQLp/JEf7jsbPU918UMMZjTGTyw="/>
+        <field:input field="customer" id="c_com_foamtec_fa_domain_FirstArticle_customer" z="KD1RKgKz/GA9Jkz4fjKcKSSQ7fE="/>
+        <field:datetime dateTimePattern="${firstArticle_needdate_date_format}" field="needDate" id="c_com_foamtec_fa_domain_FirstArticle_needDate" z="WeWTZGzb+UFJsYs+7tZzzkrwlSc="/>
+        <field:input field="partNumber" id="c_com_foamtec_fa_domain_FirstArticle_partNumber" z="nudFdyKqWUxt9gjBFTPcq8Jbkrg="/>
+        <field:input field="amount" id="c_com_foamtec_fa_domain_FirstArticle_amount" validationMessageCode="field_invalid_integer" z="GiZosK7p/mDJ8exvQfYao7S/t2o="/>
+        <field:input field="material1" id="c_com_foamtec_fa_domain_FirstArticle_material1" z="lJg2m8ZbdAch/XSzH9CSo0QiuyA="/>
+        <field:input field="material2" id="c_com_foamtec_fa_domain_FirstArticle_material2" z="TzvKgrbz+GnY7MxvXmI9IXu7bUU="/>
+        <field:input field="material3" id="c_com_foamtec_fa_domain_FirstArticle_material3" z="Qle6fsozwg/2CmqErZQ7nOqhrRY="/>
+        <field:input field="reportType" id="c_com_foamtec_fa_domain_FirstArticle_reportType" z="w1Gum6py/DTy1sEwjxIDwuhtE6o="/>
+        <field:input field="engineerReviewBy" id="c_com_foamtec_fa_domain_FirstArticle_engineerReviewBy" z="BRE1oWh6LVqvazch455kI9VkMLA="/>
+        <field:input field="drawingReview" id="c_com_foamtec_fa_domain_FirstArticle_drawingReview" z="qcEVq+IHD9yRyKgVmzkcrjZYOZA="/>
+        <field:input field="mouldRequest" id="c_com_foamtec_fa_domain_FirstArticle_mouldRequest" z="RgLrJtc4IFnkg+wUiRnr05feuuM="/>
+        <field:datetime dateTimePattern="${firstArticle_moulddate_date_format}" field="mouldDate" id="c_com_foamtec_fa_domain_FirstArticle_mouldDate" z="DW3ptnORXhxNm/mgIjl/1MzE1zM="/>
+        <field:input field="engineerStatus" id="c_com_foamtec_fa_domain_FirstArticle_engineerStatus" z="onxZndKWwWCE7VKD3z0EEkRJbi8="/>
+        <field:input field="qcReviewBy" id="c_com_foamtec_fa_domain_FirstArticle_qcReviewBy" z="r8bKLg3Ibz48ZCa8I7+jPw7ltEs="/>
+        <field:input field="dimensionReview" id="c_com_foamtec_fa_domain_FirstArticle_dimensionReview" z="ekGMv1hI8T4HUIMcsydxoDmJqhU="/>
+        <field:input field="document" id="c_com_foamtec_fa_domain_FirstArticle_document" z="R+QwHSidOSqDp6LnMNGm12+gO4I="/>
+        <field:input field="specDoc" id="c_com_foamtec_fa_domain_FirstArticle_specDoc" z="z5a8JkaOZ5kd04BBW8QPtfJpsgI="/>
+        <field:input field="rohsDoc" id="c_com_foamtec_fa_domain_FirstArticle_rohsDoc" z="5KQz2/IVcCDUa7ZaqlePSriUHOo="/>
+        <field:input field="msdsDoc" id="c_com_foamtec_fa_domain_FirstArticle_msdsDoc" z="Zm12wdYx8KAROcMXgInbR8zNV6Y="/>
+        <field:input field="hfDoc" id="c_com_foamtec_fa_domain_FirstArticle_hfDoc" z="7LU+kJpkkhUL92cKV+6zkYmKfAg="/>
+        <field:input field="qcStatus" id="c_com_foamtec_fa_domain_FirstArticle_qcStatus" z="i+xUBkY3jb9wsxEt9ItOcuyaqow="/>
+        <field:input field="workFlow" id="c_com_foamtec_fa_domain_FirstArticle_workFlow" z="d2tO/SHDb/aXCQ7Wj3v9X5MrZzk="/>
+    </form:update>
+</div>

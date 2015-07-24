@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_foamtec_fa_domain_FirstArticle" items="${firstarticles}" z="oPVyzlhryL+7tdbKVVi1iS3gR/E=">
+        <table:table data="${firstarticles}" id="l_com_foamtec_fa_domain_FirstArticle" path="/firstarticles" z="p3cwQUn9mzAJsmlXk3TALHsnLRc=">
+            <table:column date="true" dateTimePattern="${firstArticle_createdate_date_format}" id="c_com_foamtec_fa_domain_FirstArticle_createDate" property="createDate" z="1et80umwO8goCIJuKlGTfXKdpx4="/>
+            <table:column date="true" dateTimePattern="${firstArticle_engineerupdatedate_date_format}" id="c_com_foamtec_fa_domain_FirstArticle_engineerUpdateDate" property="engineerUpdateDate" z="v7Rd7z9daxckv542+I+UgQS2KtQ="/>
+            <table:column date="true" dateTimePattern="${firstArticle_qcupdatedate_date_format}" id="c_com_foamtec_fa_domain_FirstArticle_qcUpdateDate" property="qcUpdateDate" z="BTpsQNdG120a6OXC1M/+NgiUlz8="/>
+            <table:column id="c_com_foamtec_fa_domain_FirstArticle_createBy" property="createBy" z="a1fhopG09b4DNnF0K4B1yJdP4Tg="/>
+            <table:column id="c_com_foamtec_fa_domain_FirstArticle_customer" property="customer" z="yMcPN2yl07ZI0HkGXMy8UMs/vLY="/>
+            <table:column date="true" dateTimePattern="${firstArticle_needdate_date_format}" id="c_com_foamtec_fa_domain_FirstArticle_needDate" property="needDate" z="4niV6YQIarXp40798itVPnt2DV8="/>
+        </table:table>
+    </page:list>
+</div>
