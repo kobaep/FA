@@ -34,6 +34,9 @@ privileged aspect FirstArticleDataOnDemand_Roo_DataOnDemand {
         setDimensionReview(obj, index);
         setDocument(obj, index);
         setDrawingReview(obj, index);
+        setEngApproveDate(obj, index);
+        setEngSendWorkDate(obj, index);
+        setEngSendWorkStatus(obj, index);
         setEngineerReviewBy(obj, index);
         setEngineerStatus(obj, index);
         setEngineerUpdateDate(obj, index);
@@ -49,6 +52,7 @@ privileged aspect FirstArticleDataOnDemand_Roo_DataOnDemand {
         setQcReviewBy(obj, index);
         setQcStatus(obj, index);
         setQcUpdateDate(obj, index);
+        setReasonEngReject(obj, index);
         setReportType(obj, index);
         setRohsDoc(obj, index);
         setSpecDoc(obj, index);
@@ -89,6 +93,21 @@ privileged aspect FirstArticleDataOnDemand_Roo_DataOnDemand {
     public void FirstArticleDataOnDemand.setDrawingReview(FirstArticle obj, int index) {
         String drawingReview = "drawingReview_" + index;
         obj.setDrawingReview(drawingReview);
+    }
+    
+    public void FirstArticleDataOnDemand.setEngApproveDate(FirstArticle obj, int index) {
+        Date engApproveDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setEngApproveDate(engApproveDate);
+    }
+    
+    public void FirstArticleDataOnDemand.setEngSendWorkDate(FirstArticle obj, int index) {
+        Date engSendWorkDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setEngSendWorkDate(engSendWorkDate);
+    }
+    
+    public void FirstArticleDataOnDemand.setEngSendWorkStatus(FirstArticle obj, int index) {
+        String engSendWorkStatus = "engSendWorkStatus_" + index;
+        obj.setEngSendWorkStatus(engSendWorkStatus);
     }
     
     public void FirstArticleDataOnDemand.setEngineerReviewBy(FirstArticle obj, int index) {
@@ -164,6 +183,11 @@ privileged aspect FirstArticleDataOnDemand_Roo_DataOnDemand {
     public void FirstArticleDataOnDemand.setQcUpdateDate(FirstArticle obj, int index) {
         Date qcUpdateDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setQcUpdateDate(qcUpdateDate);
+    }
+    
+    public void FirstArticleDataOnDemand.setReasonEngReject(FirstArticle obj, int index) {
+        String reasonEngReject = "reasonEngReject_" + index;
+        obj.setReasonEngReject(reasonEngReject);
     }
     
     public void FirstArticleDataOnDemand.setReportType(FirstArticle obj, int index) {

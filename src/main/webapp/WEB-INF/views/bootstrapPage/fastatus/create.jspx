@@ -151,12 +151,13 @@
                             reportType : $("#report_type_id").val()
                         })
                     },
-                    dataType: "text",
+                    dataType: "json",
                     success: function(data){
-                        $(".ok_data").modal('show');
+                        alert("saved successfully.");
+                        window.location.href = session['context'] + '/main/show';
                     },
                     error: function(data){
-                        $(".error_data").modal('show');
+                        alert("saved error.");
                     }
                 });
 

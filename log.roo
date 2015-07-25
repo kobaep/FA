@@ -49,3 +49,17 @@ quit
 security setup
 quit
 // Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-23 12:23:34
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-24 15:46:14
+focus --class ~.domain.FirstArticle
+field string --fieldName  reasonEngReject
+field date --fieldName engApproveDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+field string --fieldName  engSendWorkStatus
+field date --fieldName engSendWorkDate --type java.util.Date --dateFormat SHORT --dateTimeFormatPattern "dd/MM/yyyy"
+quit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-24 15:51:30
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-24 15:51:35
+json all --deepSerialize
+web mvc json all --package ~.web
+web mvc all --package ~.web
+quit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-24 15:52:54

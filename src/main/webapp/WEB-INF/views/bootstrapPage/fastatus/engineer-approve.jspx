@@ -205,7 +205,7 @@
 
             $("#proceed_approve").click(function() {
                 $.ajax({
-                    url: session['context'] +'/firstarticles/update',
+                    url: session['context'] +'/firstarticles/engupdateapprove',
                     type: "POST",
                     headers: {
                         Accept: "application/json"
@@ -232,7 +232,7 @@
 
             $("#reject_id").click(function() {
                 $.ajax({
-                    url: session['context'] +'/firstarticles/update',
+                    url: session['context'] +'/firstarticles/engupdateapprove',
                     type: "POST",
                     headers: {
                         Accept: "application/json"

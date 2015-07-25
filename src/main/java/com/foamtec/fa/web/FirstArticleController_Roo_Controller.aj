@@ -59,17 +59,6 @@ privileged aspect FirstArticleController_Roo_Controller {
         return "firstarticles/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String FirstArticleController.update(@Valid FirstArticle firstArticle, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, firstArticle);
-            return "firstarticles/update";
-        }
-        uiModel.asMap().clear();
-        firstArticle.merge();
-        return "redirect:/firstarticles/" + encodeUrlPathSegment(firstArticle.getId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String FirstArticleController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, FirstArticle.findFirstArticle(id));
@@ -92,6 +81,8 @@ privileged aspect FirstArticleController_Roo_Controller {
         uiModel.addAttribute("firstArticle_qcupdatedate_date_format", "dd/MM/yyyy");
         uiModel.addAttribute("firstArticle_needdate_date_format", "dd/MM/yyyy");
         uiModel.addAttribute("firstArticle_moulddate_date_format", "dd/MM/yyyy");
+        uiModel.addAttribute("firstArticle_engapprovedate_date_format", "dd/MM/yyyy");
+        uiModel.addAttribute("firstArticle_engsendworkdate_date_format", "dd/MM/yyyy");
     }
     
     void FirstArticleController.populateEditForm(Model uiModel, FirstArticle firstArticle) {

@@ -29,5 +29,9 @@
         <field:input field="hfDoc" id="c_com_foamtec_fa_domain_FirstArticle_hfDoc" z="7LU+kJpkkhUL92cKV+6zkYmKfAg="/>
         <field:input field="qcStatus" id="c_com_foamtec_fa_domain_FirstArticle_qcStatus" z="i+xUBkY3jb9wsxEt9ItOcuyaqow="/>
         <field:input field="workFlow" id="c_com_foamtec_fa_domain_FirstArticle_workFlow" z="d2tO/SHDb/aXCQ7Wj3v9X5MrZzk="/>
+        <field:input field="reasonEngReject" id="c_com_foamtec_fa_domain_FirstArticle_reasonEngReject" z="+ZCX06YERMh9S5ONVvxXkj66yjA="/>
+        <field:datetime dateTimePattern="${firstArticle_engapprovedate_date_format}" field="engApproveDate" id="c_com_foamtec_fa_domain_FirstArticle_engApproveDate" z="vp83bAa23O+lMJvfPA+MXZYWqog="/>
+        <field:input field="engSendWorkStatus" id="c_com_foamtec_fa_domain_FirstArticle_engSendWorkStatus" z="MFA97v0gqAnsWml9M24QlvBQLCw="/>
+        <field:datetime dateTimePattern="${firstArticle_engsendworkdate_date_format}" field="engSendWorkDate" id="c_com_foamtec_fa_domain_FirstArticle_engSendWorkDate" z="wJTf8tg3iVzCQBIr2bVBJtzRPII="/>
     </form:update>
 </div>

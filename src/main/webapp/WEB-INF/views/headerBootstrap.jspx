@@ -5,6 +5,7 @@
 	<spring:url var="home" value="/" />
 	<spring:url var="fa_create" value="/firstarticles/create" />
 	<spring:url var="fa_eng_review" value="/firstarticles/engview" />
+	<spring:url var="fa_eng_wait_send" value="/firstarticles/engwaitsend" />
 	<spring:url var="fa_show" value="/main/show" />
 	<spring:url var="login" value="/login" />
 	<spring:url var="logout" value="/resources/j_spring_security_logout" />
@@ -72,10 +73,10 @@
                     } else if (data.username == "admin") {
                         $("#login_param").append('<a href="${logout}">logout</a>');
                         $("#username").text(data.username);
-
                         $("#menu_id").append('<a href="${fa_show}">Show</a>');
                         $("#menu_id").append('<a href="${fa_create}">Create</a>');
                         $("#menu_id").append('<a href="${fa_eng_review}">Engineer review</a>');
+                        $("#menu_id").append('<a href="${fa_eng_wait_send}">Engineer wait send</a>');
                     }
                 },
                 error:function(){

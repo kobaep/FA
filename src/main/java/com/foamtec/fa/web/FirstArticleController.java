@@ -32,70 +32,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RooWebScaffold(path = "firstarticles", formBackingObject = FirstArticle.class)
 public class FirstArticleController {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(FirstArticleController.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(FirstArticleController.class);
 
-	@RequestMapping(value = "/create", produces = "text/html")
+    @RequestMapping(value = "/create", produces = "text/html")
     public String showFa(Model uiModel, Principal principal) {
         return "fastatus/create";
-    }
-
-    @RequestMapping(value = "/save", method = RequestMethod.POST, headers = "Accept=application/json")
-    @ResponseBody
-    public ResponseEntity<String> save(@RequestParam(value="data") String data, Principal principal) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
-        try {
-            JSONObject jsonObject = new JSONObject(data);
-
-            Date createDate = new Date();
-            String createBy = principal.getName();
-            String customer = jsonObject.getString("custormer");
-            String needDate = jsonObject.getString("needDate");
-            String partNumber = jsonObject.getString("partNumber");
-            Integer amount = jsonObject.getInt("amount");
-            String mat1 = jsonObject.getString("mat1");
-            String mat2 = jsonObject.getString("mat2");
-            String mat3 = jsonObject.getString("mat3");
-            String reportType = jsonObject.getString("reportType");
-
-            Map<String, Object> map = new HashMap<String, Object>();
-
-            map.put("createDate", createDate);
-            map.put("createBy", createBy);
-            map.put("customer", customer);
-            map.put("needDate", needDate);
-            map.put("partNumber", partNumber);
-            map.put("amount", amount);
-            map.put("mat1", mat1);
-            map.put("mat2", mat2);
-            map.put("mat3", mat3);
-            map.put("reportType", reportType);
-
-            JSONObject jsonObjectMap = new JSONObject(map);
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date convertedNeedDate = sdf.parse(needDate);
-
-            FirstArticle firstArticle = new FirstArticle();
-
-            firstArticle.setCreateDate(createDate);
-            firstArticle.setCreateBy(createBy);
-            firstArticle.setCustomer(customer);
-            firstArticle.setNeedDate(convertedNeedDate);
-            firstArticle.setPartNumber(partNumber);
-            firstArticle.setAmount(amount);
-            firstArticle.setMaterial1(mat1);
-            firstArticle.setMaterial2(mat2);
-            firstArticle.setMaterial3(mat3);
-            firstArticle.setReportType(reportType);
-            firstArticle.setWorkFlow("engineer");
-
-            firstArticle.persist();
-
-            return new ResponseEntity<String>(jsonObjectMap.toString(), headers, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
-        }
     }
 
     @RequestMapping(value = "/engview", produces = "text/html")
@@ -109,15 +50,12 @@ public class FirstArticleController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         try {
-            
             List<FirstArticle> firstArticles = FirstArticle.findByWorkFlow("engineer");
             JSONArray dataAllForSend = new JSONArray();
             for (FirstArticle f : firstArticles) {
-
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String createDate = sdf.format(f.getCreateDate());
                 String needDate = sdf.format(f.getNeedDate());
-
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("createDate", createDate);
                 jsonObject.put("needDate", needDate);
@@ -131,7 +69,6 @@ public class FirstArticleController {
                 jsonObject.put("id", f.getId());
                 dataAllForSend.put(jsonObject);
             }
-
             return new ResponseEntity<String>(dataAllForSend.toString(), headers, HttpStatus.OK);
         } catch (Exception e) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -143,18 +80,67 @@ public class FirstArticleController {
 
     @RequestMapping(value = "/engapprove/{id}", produces = "text/html")
     public String engineerReview(Model uiModel, @PathVariable("id") Long id, Principal principal) {
-        uiModel.addAttribute("firstArticle",FirstArticle.findFirstArticle(id));
+        uiModel.addAttribute("firstArticle", FirstArticle.findFirstArticle(id));
         return "fastatus/engineer-approve";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/save", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public ResponseEntity<String> update(@RequestParam(value="data") String data, Principal principal) {
+    public ResponseEntity<String> save(@RequestParam("data") String data, Principal principal) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         try {
             JSONObject jsonObject = new JSONObject(data);
+            Date createDate = new Date();
+            String createBy = principal.getName();
+            String customer = jsonObject.getString("custormer");
+            String needDate = jsonObject.getString("needDate");
+            String partNumber = jsonObject.getString("partNumber");
+            Integer amount = jsonObject.getInt("amount");
+            String mat1 = jsonObject.getString("mat1");
+            String mat2 = jsonObject.getString("mat2");
+            String mat3 = jsonObject.getString("mat3");
+            String reportType = jsonObject.getString("reportType");
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("createDate", createDate);
+            map.put("createBy", createBy);
+            map.put("customer", customer);
+            map.put("needDate", needDate);
+            map.put("partNumber", partNumber);
+            map.put("amount", amount);
+            map.put("mat1", mat1);
+            map.put("mat2", mat2);
+            map.put("mat3", mat3);
+            map.put("reportType", reportType);
+            JSONObject jsonObjectMap = new JSONObject(map);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date convertedNeedDate = sdf.parse(needDate);
+            FirstArticle firstArticle = new FirstArticle();
+            firstArticle.setCreateDate(createDate);
+            firstArticle.setCreateBy(createBy);
+            firstArticle.setCustomer(customer);
+            firstArticle.setNeedDate(convertedNeedDate);
+            firstArticle.setPartNumber(partNumber);
+            firstArticle.setAmount(amount);
+            firstArticle.setMaterial1(mat1);
+            firstArticle.setMaterial2(mat2);
+            firstArticle.setMaterial3(mat3);
+            firstArticle.setReportType(reportType);
+            firstArticle.setWorkFlow("engineer");
+            firstArticle.persist();
+            return new ResponseEntity<String>(jsonObjectMap.toString(), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
+        }
+    }
 
+    @RequestMapping(value = "/engupdateapprove", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> update(@RequestParam("data") String data, Principal principal) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            JSONObject jsonObject = new JSONObject(data);
             String updateBy = principal.getName();
             Long id = jsonObject.getLong("id");
             String drawingReview = jsonObject.getString("drawingReview");
@@ -164,9 +150,8 @@ public class FirstArticleController {
             String reason = jsonObject.getString("reason");
 
             FirstArticle firstArticle = FirstArticle.findFirstArticle(id);
-
             firstArticle.setEngineerReviewBy(updateBy);
-            if (drawingReview == "01") {
+            if ("01".equals(drawingReview)) {
                 firstArticle.setWorkFlow("engineerSendBack");
             } else {
                 firstArticle.setWorkFlow("engineerSendWork");
@@ -178,17 +163,60 @@ public class FirstArticleController {
                 Date convertedMouldDate = sdf.parse(mouldDate);
                 firstArticle.setMouldDate(convertedMouldDate);
             } catch (Exception e) {
-                System.out.println("ieie");
+
             }
+            firstArticle.setEngApproveDate(new Date());
             firstArticle.setEngineerStatus(engineerStatus);
-
+            firstArticle.setReasonEngReject(reason);
             firstArticle.persist();
-
-            System.out.println(firstArticle.toString());
 
             return new ResponseEntity<String>(jsonObject.toString(), headers, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("false", headers, HttpStatus.OK);
         }
+    }
+
+    @RequestMapping(value = "/engwaitsend", produces = "text/html")
+    public String engineerReviewWaitSand(Model uiModel, Principal principal) {
+        return "fastatus/engineer-wait-send";
+    }
+
+    @RequestMapping(value = "/engwaitsenddata", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> getDataEngineerWaitSend(Principal principal) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            List<FirstArticle> firstArticles = FirstArticle.findByWorkFlow("engineerSendWork");
+            JSONArray dataAllForSend = new JSONArray();
+            for (FirstArticle f : firstArticles) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String createDate = sdf.format(f.getCreateDate());
+                String needDate = sdf.format(f.getNeedDate());
+                String engApproveDate = sdf.format(new Date());
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("createDate", createDate);
+                jsonObject.put("needDate", needDate);
+                jsonObject.put("partNumber", f.getPartNumber());
+                jsonObject.put("amount", f.getAmount());
+                jsonObject.put("engApproveDate", engApproveDate);
+                jsonObject.put("approveBy", f.getEngineerReviewBy());
+                jsonObject.put("createBy", f.getCreateBy());
+                jsonObject.put("id", f.getId());
+                dataAllForSend.put(jsonObject);
+            }
+            return new ResponseEntity<String>(dataAllForSend.toString(), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("param", "false");
+            JSONObject jsonObjectMap = new JSONObject(map);
+            return new ResponseEntity<String>(jsonObjectMap.toString(), headers, HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/engsenditem/{id}", produces = "text/html")
+    public String engineerSendItem(Model uiModel, @PathVariable("id") Long id, Principal principal) {
+        uiModel.addAttribute("firstArticle", FirstArticle.findFirstArticle(id));
+        return "fastatus/engineer-send-item";
     }
 }

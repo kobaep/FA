@@ -29,5 +29,9 @@
         <field:display field="hfDoc" id="s_com_foamtec_fa_domain_FirstArticle_hfDoc" object="${firstarticle}" z="UVPDyhqogeIFKfRQywMtPTTXwpU="/>
         <field:display field="qcStatus" id="s_com_foamtec_fa_domain_FirstArticle_qcStatus" object="${firstarticle}" z="2lICTl74xPwAscqtOAl2mGXR18o="/>
         <field:display field="workFlow" id="s_com_foamtec_fa_domain_FirstArticle_workFlow" object="${firstarticle}" z="n2ryH4HR01Gx7RhTDyGzBfKrIgs="/>
+        <field:display field="reasonEngReject" id="s_com_foamtec_fa_domain_FirstArticle_reasonEngReject" object="${firstarticle}" z="0yCtoeidrMu00NoKYT2a2d+OizQ="/>
+        <field:display date="true" dateTimePattern="${firstArticle_engapprovedate_date_format}" field="engApproveDate" id="s_com_foamtec_fa_domain_FirstArticle_engApproveDate" object="${firstarticle}" z="YLAXJN1dwmISyb0YRSKAzI9parY="/>
+        <field:display field="engSendWorkStatus" id="s_com_foamtec_fa_domain_FirstArticle_engSendWorkStatus" object="${firstarticle}" z="9HvXnj3xPFHN9pRcD5kVV5IVIWY="/>
+        <field:display date="true" dateTimePattern="${firstArticle_engsendworkdate_date_format}" field="engSendWorkDate" id="s_com_foamtec_fa_domain_FirstArticle_engSendWorkDate" object="${firstarticle}" z="Lh0QYureWHfdHFmlmlDcbYUXYZg="/>
     </page:show>
 </div>

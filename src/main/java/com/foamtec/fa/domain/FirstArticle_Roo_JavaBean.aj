@@ -192,4 +192,36 @@ privileged aspect FirstArticle_Roo_JavaBean {
         this.workFlow = workFlow;
     }
     
+    public String FirstArticle.getReasonEngReject() {
+        return this.reasonEngReject;
+    }
+    
+    public void FirstArticle.setReasonEngReject(String reasonEngReject) {
+        this.reasonEngReject = reasonEngReject;
+    }
+    
+    public Date FirstArticle.getEngApproveDate() {
+        return this.engApproveDate;
+    }
+    
+    public void FirstArticle.setEngApproveDate(Date engApproveDate) {
+        this.engApproveDate = engApproveDate;
+    }
+    
+    public String FirstArticle.getEngSendWorkStatus() {
+        return this.engSendWorkStatus;
+    }
+    
+    public void FirstArticle.setEngSendWorkStatus(String engSendWorkStatus) {
+        this.engSendWorkStatus = engSendWorkStatus;
+    }
+    
+    public Date FirstArticle.getEngSendWorkDate() {
+        return this.engSendWorkDate;
+    }
+    
+    public void FirstArticle.setEngSendWorkDate(Date engSendWorkDate) {
+        this.engSendWorkDate = engSendWorkDate;
+    }
+    
 }

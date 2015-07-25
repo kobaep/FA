@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect FirstArticle_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> FirstArticle.fieldNames4OrderClauseFilter = java.util.Arrays.asList("createBy", "customer", "needDate", "partNumber", "amount", "material1", "material2", "material3", "reportType", "engineerReviewBy", "drawingReview", "mouldRequest", "mouldDate", "engineerStatus", "qcReviewBy", "dimensionReview", "document", "specDoc", "rohsDoc", "msdsDoc", "hfDoc", "qcStatus", "workFlow");
+    public static final List<String> FirstArticle.fieldNames4OrderClauseFilter = java.util.Arrays.asList("createBy", "customer", "needDate", "partNumber", "amount", "material1", "material2", "material3", "reportType", "engineerReviewBy", "drawingReview", "mouldRequest", "mouldDate", "engineerStatus", "qcReviewBy", "dimensionReview", "document", "specDoc", "rohsDoc", "msdsDoc", "hfDoc", "qcStatus", "workFlow", "reasonEngReject", "engApproveDate", "engSendWorkStatus", "engSendWorkDate");
     
     public static long FirstArticle.countFirstArticles() {
         return entityManager().createQuery("SELECT COUNT(o) FROM FirstArticle o", Long.class).getSingleResult();

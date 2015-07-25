@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <jsp:useBean class="java.util.Date" id="now" scope="request" />
+    <fmt:formatDate pattern="dd/MM/yyyy" value="${now}" var="default" />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>FA</li>
+                <li class="active">Engineer Send Item</li>
+            </ol>
+            <form id="save_id" action="" method="POST" class="form-horizontal">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Request by :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="requestBy_id">${firstArticle.createBy}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Customer :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="customer_id">${firstArticle.customer}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="need_date_id">Need Date :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="need_date_id">
+                                <fmt:formatDate pattern="dd/MM/yyyy" value="${firstArticle.needDate}" var="needDate" />
+                                ${needDate}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Part No :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="part_id">${firstArticle.partNumber}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="amount_id">Q'ty :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="amount_id">${firstArticle.amount}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Mat'l 1 :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="mat1_id">${firstArticle.material1}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Mat'l 2 :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="mat2_id">${firstArticle.material2}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Mat'l 3 :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="mat3_id">${firstArticle.material3}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Report Type :</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static text-overflow-newline" id="report_type_id">${firstArticle.reportType}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7 visible-lg visible-md visible-sm">
+                    <blockquote class="blockquote">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="part_send_id">Part No</label>
+                                <div class="col-sm-8">
+                                    <input id="part_send_id" name="part" type="text" class="form-control" autocomplete="off" placeholder="Part Number"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-4 col-sm-2" id="btn_form_approve">
+                                <button id="proceed_approve" type="button" class="btn btn-success">Submit &#160;<span class="glyphicon glyphicon-ok"><jsp:text/></span></button>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade ok_data" tabindex="-1" role="dialog" aria-labelledby="ok_label">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">warning</h4>
+                </div>
+                <div class="modal-body">
+                    Successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="ok_id" class="btn btn-default">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade error_data" tabindex="-1" role="dialog" aria-labelledby="ok_label">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">warning</h4>
+                </div>
+                <div class="modal-body">
+                    Error.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="error_id" class="btn btn-default">Error</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        <![CDATA[
+        $(document).ready(function() {
+
+
+        });
+        ]]>
+    </script>
+</div>

@@ -110,4 +110,24 @@ public class FirstArticle extends BaseEntity {
     /**
      */
     private String workFlow;
+
+    /**
+     */
+    private String reasonEngReject;
+
+    /**
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date engApproveDate;
+
+    /**
+     */
+    private String engSendWorkStatus;
+
+    /**
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date engSendWorkDate;
 }

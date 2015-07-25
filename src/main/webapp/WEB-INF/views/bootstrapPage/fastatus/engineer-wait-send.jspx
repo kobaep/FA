@@ -9,10 +9,10 @@
         <div class="col-sm-12">
             <ol class="breadcrumb">
                 <li>FA</li>
-                <li class="active">Engineer Preview</li>
+                <li class="active">Engineer wait send</li>
             </ol>
             <div class="panel panel-info">
-                <div class="panel-heading">FA REQUEST FROM SALE</div>
+                <div class="panel-heading">ENGINEER WAIT SEND ITEM</div>
                 <div class="panel-body">
                     <table class="table table-hover table-striped table-condensed">
                         <thead>
@@ -22,12 +22,10 @@
                                 <th>Need date</th>
                                 <th>part</th>
                                 <th>Q'ty</th>
-                                <th>mat'l 1</th>
-                                <th>mat'l 2</th>
-                                <th>mat'l 3</th>
-                                <th>Doc</th>
-                                <th>By</th>
-                                <th></th>
+                                <th>Approve date</th>
+                                <th>Approve By</th>
+                                <th>Request By</th>
+                                <th>Send work</th>
                             </tr>
                         </thead>
                         <tbody id="data_table_fa">
@@ -45,7 +43,7 @@
     $(document).ready(function() {
 
         $.ajax({
-            url: session['context']+'/firstarticles/engviewdata',
+            url: session['context']+'/firstarticles/engwaitsenddata',
             data: "",
             dataType: 'json',
             processData: false,
@@ -54,7 +52,7 @@
             success: function(data){
                 $.each(data, function (i, item) {
                     var number = i + 1;
-                    $("#data_table_fa").append('<tr><td>'+number+'</td><td>'+item.createDate+'</td><td>'+item.needDate+'</td><td>'+item.partNumber+'</td><td>'+item.amount+'</td><td>'+item.mat1+'</td><td>'+item.mat2+'</td><td>'+item.mat3+'</td><td>'+item.doc+'</td><td>'+item.createBy+'</td><td><a class="btn btn-warning btn-xs" href="'+session['context']+'/firstarticles/engapprove/'+item.id+'" role="button"><span class="glyphicon glyphicon-search"></span></a></td></tr>');
+                    $("#data_table_fa").append('<tr><td>'+number+'</td><td>'+item.createDate+'</td><td>'+item.needDate+'</td><td>'+item.partNumber+'</td><td>'+item.amount+'</td><td>'+item.engApproveDate+'</td><td>'+item.approveBy+'</td><td>'+item.createBy+'</td><td><a class="btn btn-warning btn-xs" href="'+session['context']+'/firstarticles/engsenditem/'+item.id+'" role="button"><span class="glyphicon glyphicon-shopping-cart"></span></a></td></tr>');
                 });
             },
             error:function(){
