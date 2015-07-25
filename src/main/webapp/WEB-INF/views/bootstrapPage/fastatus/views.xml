@@ -16,4 +16,10 @@
     <definition extends="foamtec" name="fastatus/engineer-send-item">
         <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/engineer-send-item.jspx"/>
     </definition>
+    <definition extends="foamtec" name="fastatus/fa-review">
+        <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/fa-review.jspx"/>
+    </definition>
+    <definition extends="foamtec" name="fastatus/fa-approve">
+        <put-attribute name="body" value="/WEB-INF/views/bootstrapPage/fastatus/fa-approve.jspx"/>
+    </definition>
 </tiles-definitions>

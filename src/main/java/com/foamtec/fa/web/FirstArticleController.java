@@ -71,10 +71,7 @@ public class FirstArticleController {
             }
             return new ResponseEntity<String>(dataAllForSend.toString(), headers, HttpStatus.OK);
         } catch (Exception e) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("param", "false");
-            JSONObject jsonObjectMap = new JSONObject(map);
-            return new ResponseEntity<String>(jsonObjectMap.toString(), headers, HttpStatus.OK);
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
         }
     }
 
@@ -207,10 +204,7 @@ public class FirstArticleController {
             }
             return new ResponseEntity<String>(dataAllForSend.toString(), headers, HttpStatus.OK);
         } catch (Exception e) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("param", "false");
-            JSONObject jsonObjectMap = new JSONObject(map);
-            return new ResponseEntity<String>(jsonObjectMap.toString(), headers, HttpStatus.OK);
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
         }
     }
 
@@ -219,4 +213,68 @@ public class FirstArticleController {
         uiModel.addAttribute("firstArticle", FirstArticle.findFirstArticle(id));
         return "fastatus/engineer-send-item";
     }
+
+    @RequestMapping(value = "/engupdatesenditem", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> updateSendItem(@RequestParam("data") String data, Principal principal) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            JSONObject jsonObject = new JSONObject(data);
+            Long id = jsonObject.getLong("id");
+            String sendName = jsonObject.getString("sendName");
+
+            FirstArticle firstArticle = FirstArticle.findFirstArticle(id);
+            firstArticle.setWorkFlow("FA");
+            firstArticle.setEngSendWorkDate(new Date());
+            firstArticle.setEngSendWorkStatus(sendName);
+            firstArticle.persist();
+
+            return new ResponseEntity<String>(jsonObject.toString(), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/fareview", produces = "text/html")
+    public String faReview(Model uiModel, Principal principal) {
+        return "fastatus/fa-review";
+    }
+
+    @RequestMapping(value = "/faviewdata", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> getDataFa(Principal principal) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            List<FirstArticle> firstArticles = FirstArticle.findByWorkFlow("FA");
+            JSONArray dataAllForSend = new JSONArray();
+            for (FirstArticle f : firstArticles) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String createDate = sdf.format(f.getCreateDate());
+                String needDate = sdf.format(f.getNeedDate());
+                String sendItemDate = sdf.format(f.getEngSendWorkDate());
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("createDate", createDate);
+                jsonObject.put("needDate", needDate);
+                jsonObject.put("partNumber", f.getPartNumber());
+                jsonObject.put("amount", f.getAmount());
+                jsonObject.put("createBy", f.getCreateBy());
+                jsonObject.put("sendItemName", f.getEngSendWorkStatus());
+                jsonObject.put("sendItemDate", sendItemDate);
+                jsonObject.put("id", f.getId());
+                dataAllForSend.put(jsonObject);
+            }
+            return new ResponseEntity<String>(dataAllForSend.toString(), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/faapprove/{id}", produces = "text/html")
+    public String faApprove(Model uiModel, @PathVariable("id") Long id, Principal principal) {
+        uiModel.addAttribute("firstArticle", FirstArticle.findFirstArticle(id));
+        return "fastatus/fa-approve";
+    }
+
 }

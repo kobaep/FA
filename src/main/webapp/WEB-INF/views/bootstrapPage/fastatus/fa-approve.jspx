@@ -9,7 +9,7 @@
         <div class="col-sm-12">
             <ol class="breadcrumb">
                 <li>FA</li>
-                <li class="active">Engineer Send Item</li>
+                <li class="active">First Article Approve</li>
             </ol>
             <form id="save_id" action="" method="POST" class="form-horizontal">
                 <div class="col-sm-5">
@@ -94,29 +94,29 @@
         <![CDATA[
         $(document).ready(function() {
 
-            $("#proceed_name").click(function() {
-                $.ajax({
-                    url: session['context'] +'/firstarticles/engupdatesenditem',
-                    type: "POST",
-                    headers: {
-                        Accept: "application/json"
-                    },
-                    data: {
-                        data:JSON.stringify({
-                            id : "${firstArticle.id}",
-                            sendName : $("#name_id").val()
-                        })
-                    },
-                    dataType: "json",
-                    success: function(data){
-                        alert("Successfully.");
-                        window.location.href = session['context'] + '/main/show';
-                    },
-                    error: function(data){
-                        alert("Error");
-                    }
-                });
-            });
+            // $("#proceed_name").click(function() {
+            //     $.ajax({
+            //         url: session['context'] +'/firstarticles/engupdatesenditem',
+            //         type: "POST",
+            //         headers: {
+            //             Accept: "application/json"
+            //         },
+            //         data: {
+            //             data:JSON.stringify({
+            //                 id : "${firstArticle.id}",
+            //                 sendName : $("#name_id").val()
+            //             })
+            //         },
+            //         dataType: "json",
+            //         success: function(data){
+            //             alert("Successfully.");
+            //             window.location.href = session['context'] + '/main/show';
+            //         },
+            //         error: function(data){
+            //             alert("Error");
+            //         }
+            //     });
+            // });
 
         });
         ]]>

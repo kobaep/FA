@@ -6,6 +6,7 @@
 	<spring:url var="fa_create" value="/firstarticles/create" />
 	<spring:url var="fa_eng_review" value="/firstarticles/engview" />
 	<spring:url var="fa_eng_wait_send" value="/firstarticles/engwaitsend" />
+	<spring:url var="fa_fa_review" value="/firstarticles/fareview" />
 	<spring:url var="fa_show" value="/main/show" />
 	<spring:url var="login" value="/login" />
 	<spring:url var="logout" value="/resources/j_spring_security_logout" />
@@ -77,6 +78,7 @@
                         $("#menu_id").append('<a href="${fa_create}">Create</a>');
                         $("#menu_id").append('<a href="${fa_eng_review}">Engineer review</a>');
                         $("#menu_id").append('<a href="${fa_eng_wait_send}">Engineer wait send</a>');
+                        $("#menu_id").append('<a href="${fa_fa_review}">FA review</a>');
                     }
                 },
                 error:function(){
