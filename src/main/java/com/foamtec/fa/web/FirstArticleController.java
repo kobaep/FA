@@ -277,4 +277,59 @@ public class FirstArticleController {
         return "fastatus/fa-approve";
     }
 
+    @RequestMapping(value = "/faupdatedocumentapprove", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> faUpdateDocumentApprove(@RequestParam("data") String data, Principal principal) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            String updateBy = principal.getName();
+            JSONObject jsonObject = new JSONObject(data);
+            Long id = jsonObject.getLong("id");
+            String dimentionCheck = jsonObject.getString("dimentionCheck");
+            String documentCheck = jsonObject.getString("documentCheck");
+            String documentNotFull = jsonObject.getString("documentNotFull");
+
+            String spec = "";
+            String roHs = "";
+            String msds = "";
+            String hf = "";
+
+            String[] parts = documentNotFull.split("_");
+            for (int i = 0; i < parts.length; i++) {
+                if("spec".equals(parts[i])) {
+                    spec = "true";
+                }
+                if("RoHs".equals(parts[i])) {
+                    roHs = "true";
+                }
+                if("Msds".equals(parts[i])) {
+                    msds = "true";
+                }
+                if("Hf".equals(parts[i])) {
+                    hf = "true";
+                }
+            }
+
+            FirstArticle firstArticle = FirstArticle.findFirstArticle(id);
+            firstArticle.setWorkFlow("Sales");
+            firstArticle.setQcReviewBy(updateBy);
+            firstArticle.setDimensionReview(dimentionCheck);
+            firstArticle.setDocument(documentCheck);
+            if ("notfull".equals(documentCheck)) {
+                firstArticle.setSpecDoc(spec);
+                firstArticle.setRohsDoc(roHs);
+                firstArticle.setMsdsDoc(msds);
+                firstArticle.setHfDoc(hf);
+            }
+            firstArticle.setQcStatus("Approve");
+
+            // firstArticle.persist();
+
+            return new ResponseEntity<String>(jsonObject.toString(), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("false", headers, HttpStatus.OK);
+        }
+    }
+
 }

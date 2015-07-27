@@ -71,18 +71,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-7 visible-lg visible-md visible-sm">
+                <div class="col-sm-7">
                     <blockquote class="blockquote">
                         <div class="form-group">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="name_id">ชื่อผู้ส่ง</label>
+                                <label class="col-sm-4 control-label">Dimension</label>
                                 <div class="col-sm-8">
-                                    <input id="name_id" name="part" type="text" class="form-control" autocomplete="off" placeholder="name"/>
+                                    <div class="radio">
+                                        <label><input type="radio"  name="dimension" value="pass" />Pass</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="dimension" value="ng" />NG</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-offset-4 col-sm-2" id="btn_form_approve">
-                                <button id="proceed_name" type="button" class="btn btn-success">Submit &#160;<span class="glyphicon glyphicon-ok"><jsp:text/></span></button>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Document</label>
+                                <div class="col-sm-8">
+                                    <div class="radio">
+                                        <label><input type="radio"  name="document" value="full" />ครบ</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="document" value="notfull" />ไม่ครบ</label>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="form-group hidden" id="document_redio_id">
+                                <label class="checkbox-inline col-sm-4 control-label"><input type="checkbox" name="doc_name" value="spec"/>spec</label>
+                                <label class="checkbox-inline col-sm-2 control-label"><input type="checkbox" name="doc_name" value="RoHs"/>RoHs</label>
+                                <label class="checkbox-inline col-sm-2 control-label"><input type="checkbox" name="doc_name" value="Msds"/>Msds</label>
+                                <label class="checkbox-inline col-sm-2 control-label"><input type="checkbox" name="doc_name" value="Hf"/>Hf</label>
+                            </div>
+                            <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-2" id="btn_form_approve">
+                                <button id="proceed_approve" type="button" class="btn btn-success">Approve &#160;<span class="glyphicon glyphicon-ok"><jsp:text/></span></button>
+                            </div>
+                            <div class="col-sm-2" id="btn_form_reject">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Reject &#160;<span class="glyphicon glyphicon-remove"><jsp:text/></span></button>
+                            </div>
+                        </div>
                         </div>
                     </blockquote>
                 </div>
@@ -94,29 +121,47 @@
         <![CDATA[
         $(document).ready(function() {
 
-            // $("#proceed_name").click(function() {
-            //     $.ajax({
-            //         url: session['context'] +'/firstarticles/engupdatesenditem',
-            //         type: "POST",
-            //         headers: {
-            //             Accept: "application/json"
-            //         },
-            //         data: {
-            //             data:JSON.stringify({
-            //                 id : "${firstArticle.id}",
-            //                 sendName : $("#name_id").val()
-            //             })
-            //         },
-            //         dataType: "json",
-            //         success: function(data){
-            //             alert("Successfully.");
-            //             window.location.href = session['context'] + '/main/show';
-            //         },
-            //         error: function(data){
-            //             alert("Error");
-            //         }
-            //     });
-            // });
+            $("input[name='document']").change(function(){
+                $("#document_redio_id").removeClass("hidden");
+                var documentRedio = $('input[name="document"]:checked').val();
+                if(documentRedio == "notfull") {
+                    $("#document_redio_id").removeClass("hidden");
+                } else {
+                    $('input:checkbox[name=doc_name]').attr('checked',false);
+                    $("#document_redio_id").addClass("hidden");
+                }
+            });
+
+            $("#proceed_approve").click(function() {
+                var documentNotFull = "";
+                $('input:checkbox:checked').each(function() {
+                    console.debug(this.value);
+                    documentNotFull = documentNotFull + "_" + this.value;
+                });
+                $.ajax({
+                    url: session['context'] +'/firstarticles/faupdatedocumentapprove',
+                    type: "POST",
+                    headers: {
+                        Accept: "application/json"
+                    },
+                    data: {
+                        data:JSON.stringify({
+                            id : "${firstArticle.id}",
+                            dimentionCheck : $('input[name="dimension"]:checked').val(),
+                            documentCheck : $('input[name="document"]:checked').val(),
+                            documentNotFull : documentNotFull
+                        })
+                    },
+                    dataType: "json",
+                    success: function(data){
+                        alert("Approve Successfully.");
+                        window.location.href = session['context'] + '/main/show';
+                    },
+                    error: function(data){
+                        alert("Error");
+                    }
+                });
+            });
 
         });
         ]]>
